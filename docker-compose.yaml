@@ -1,0 +1,12 @@
+services:
+  app:
+    # Build the image from the Dockerfile in the current directory
+    build: .
+    container_name: personal-discord-bot
+    command: npm run dev
+    # Expose the port 3000 to the host
+    ports:
+      - 3000:3000
+    volumes:
+    # Mount the source code into the container (sync files between host and container)
+      - .:/usr/src/app
