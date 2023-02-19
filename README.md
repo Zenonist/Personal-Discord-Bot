@@ -14,9 +14,9 @@ Typescript Discord bot for both personal use and public use
     - [Database ID](https://developers.notion.com/docs/working-with-databases) (Where can I find my database's ID? section)
     - [Notion database for money tracker function](./src/documents/notion_money_tracker.md)
 
-## Initialize the bot
+## Install the bot
 ```
-npm init
+npm install
 ```
 ## Run the bot
 ```
