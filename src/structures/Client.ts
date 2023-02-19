@@ -73,6 +73,7 @@ export class ExtendedClient extends Client {
             // this.deleteCommands({
             //     commands: slashCommands
             // });
+        });
         // Event
         const eventFiles = await globPromise(
             `${__dirname}/../events/*{.ts,.js}`
@@ -84,6 +85,4 @@ export class ExtendedClient extends Client {
             this.on(event.event, event.run)
         });
     }
-
-    
 }
