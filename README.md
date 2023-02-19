@@ -12,7 +12,7 @@ Typescript Discord bot for both personal use and public use
   - Notion API
     - [Workspace API](https://www.notion.so/my-integrations)
     - [Database ID](https://developers.notion.com/docs/working-with-databases) (Where can I find my database's ID? section)
-    - [How to create Database](./src/documents/notion_money_tracker.md)
+    - [Notion database for money tracker function](./src/documents/notion_money_tracker.md)
 
 ## Initialize the bot
 ```
