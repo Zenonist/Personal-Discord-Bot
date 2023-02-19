@@ -14,3 +14,9 @@ import { getResults } from '../../functions/WolframAlpha';
 //         expect(await getResults('asdfasdf')).toBe('Check your spelling, and use English');
 //     })
 // })
+
+describe ('Temp test case', () => {
+    it('should return true', async () => {
+        expect(1+1).toBe(2);
+    })
+})
