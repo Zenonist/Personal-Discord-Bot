@@ -13,10 +13,10 @@ Typescript Discord bot for both personal use and public use
     - [Workspace API](https://www.notion.so/my-integrations)
     - [Database ID](https://developers.notion.com/docs/working-with-databases) (Where can I find my database's ID? section)
     - [Notion database for money tracker function](./src/documents/notion_money_tracker.md)
-
-## Initialize the bot
+- Rename .example.env to .env and insert tokens and api into that file
+## Install the bot
 ```
-npm init
+npm install
 ```
 ## Run the bot
 ```
@@ -35,3 +35,7 @@ docker build -t discord-bot .
 ```
 docker compose up
 ```
+
+---
+# Notes
+- If you clone this project, **you need to uncomment test case in 'src/test/unit/wolframaplha.spec.ts'** for unit testing (This test case requires API key)
