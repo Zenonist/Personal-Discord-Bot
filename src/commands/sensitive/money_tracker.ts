@@ -79,7 +79,7 @@ export default new Command({
         } else {
             // * Get the data from the interaction
             const type: string = interaction.options.getString("type");
-            const categories: string = interaction.options.getString("category");
+            const categories: string = interaction.options.getString("categories");
             const amount: number = interaction.options.getNumber("amount");
             const currency: string = interaction.options.getString("currency");
             let note: string = interaction.options.getString("note");
