@@ -1,8 +1,8 @@
 import * as Weight from "../../../functions/MetricConversion/Weight";
 
 describe('Kg to Lb', () => {
-    it('should return -291 Lb', () => {
-        expect(Weight.convertKgToPound(-132)).toBeCloseTo(-291.01,0);
+    it('should return error message', () => {
+        expect(Weight.convertKgToPound(-132)).toBe('Value should not be negative');
     });
     it('should return 0 Lb', () => {
         expect(Weight.convertKgToPound(0)).toEqual(0);
@@ -13,8 +13,8 @@ describe('Kg to Lb', () => {
 });
 
 describe('Lb to Kg', () => {
-    it('should return approx -967.97 Kg', () => {
-        expect(Weight.convertPoundToKg(-2134)).toBeCloseTo(-967.97,0)
+    it('should return error message', () => {
+        expect(Weight.convertPoundToKg(-2134)).toBe('Value should not be negative');
     });
     it('should return 0 Kg', () => {
         expect(Weight.convertPoundToKg(0)).toEqual(0);
@@ -25,8 +25,8 @@ describe('Lb to Kg', () => {
 });
 
 describe('G to Oz', () => {
-    it('should return -124.27 Oz', () => {
-        expect(Weight.convertGramToOunce(-3523)).toBeCloseTo(-124.27,0)
+    it('should return error message', () => {
+        expect(Weight.convertGramToOunce(-3523)).toBe('Value should not be negative');
     });
     it('should return 0 Oz', () => {
         expect(Weight.convertGramToOunce(0)).toEqual(0);
@@ -37,8 +37,8 @@ describe('G to Oz', () => {
 });
 
 describe('Oz to G', () => {
-    it('should return -34,983.31 G', () => {
-        expect(Weight.convertOunceToGram(-1234)).toBeCloseTo(-34983.31,0)
+    it('should return error message', () => {
+        expect(Weight.convertOunceToGram(-1234)).toBe('Value should not be negative');
     });
     it('should return 0 Oz', () => {
         expect(Weight.convertOunceToGram(0)).toEqual(0);
@@ -49,8 +49,8 @@ describe('Oz to G', () => {
 });
 
 describe('Lb to Oz', () => {
-    it('should return -34,983.31 G', () => {
-        expect(Weight.convertPoundToOunce(-414)).toBeCloseTo(-6624,0)
+    it('should return error message', () => {
+        expect(Weight.convertPoundToOunce(-414)).toBe('Value should not be negative');
     });
     it('should return 0 Oz', () => {
         expect(Weight.convertPoundToOunce(0)).toEqual(0);
@@ -61,8 +61,8 @@ describe('Lb to Oz', () => {
 });
 
 describe('Oz to Lb', () => {
-    it('should return -34,983.31 G', () => {
-        expect(Weight.convertOunceToPound(-423)).toBeCloseTo(-26.44,0)
+    it('should return error message', () => {
+        expect(Weight.convertOunceToPound(-423)).toBe('Value should not be negative');
     });
     it('should return 0 Oz', () => {
         expect(Weight.convertOunceToPound(0)).toEqual(0);
