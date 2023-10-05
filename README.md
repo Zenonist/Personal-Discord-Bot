@@ -38,4 +38,4 @@ docker compose up
 
 ---
 # Notes
-- If you clone this project, **you need to uncomment test case in 'src/test/unit/wolframaplha.spec.ts'** for unit testing (This test case requires API key)
+- If you clone this project, **you need to uncomment test case in 'src/test/unit/wolframaplha.spec.ts' and 'src/test/unit/chatgpt.spec.ts'** for unit testing (This test case requires API key)
