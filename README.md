@@ -13,6 +13,8 @@ Typescript Discord bot for both personal use and public use
     - [Workspace API](https://www.notion.so/my-integrations)
     - [Database ID](https://developers.notion.com/docs/working-with-databases) (Where can I find my database's ID? section)
     - [Notion database for money tracker function](./src/documents/notion_money_tracker.md)
+  - [Google AI Studio API key](https://makersuite.google.com/app/apikey)
+  - [OpenAI API key](https://platform.openai.com/api-keys)
 - Rename .example.env to .env and insert tokens and api into that file
 ## Install the bot
 ```
