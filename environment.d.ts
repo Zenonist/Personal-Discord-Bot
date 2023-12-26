@@ -9,6 +9,7 @@ declare global {
             GENIUS_ACCESS_TOKEN: string;
             Notion_API_Key: string;
             Notion_Money_Tracker_DB_ID: string;
+            Google_API_Key: string;
             environment: "dev" | "prod" | "debug";
         }
     }
