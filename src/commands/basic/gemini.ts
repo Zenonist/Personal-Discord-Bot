@@ -27,20 +27,31 @@ export default new Command({
                 }
             ],
             required: false,
+        },
+        {
+            name: "maxtokens",
+            description: "The maximum tokens to use (Max: 4096)",
+            type: "NUMBER",
+            required: false,
         }
     ],
     run: async ({interaction}) => {
-        const prompt = interaction.options.getString("prompt")
-        const model = (interaction.options.getString("model") != null) ? interaction.options.getString("model") : "gemini-pro"
+        const prompt = interaction.options.getString("prompt");
+        const model = (interaction.options.getString("model") != null) ? interaction.options.getString("model") : "gemini-pro";
+        let maxTokens = interaction.options.getNumber("maxtokens");
+        if (maxTokens === null || maxTokens > 4096 || maxTokens < 1) {
+            maxTokens = 4096;
+        }
         const response = await getResults(
             prompt,
-            model
+            model,
+            maxTokens
         );
         const embed_message = new MessageEmbed()
             .setColor("#0099ff")
             .setTitle("Result from Gemini")
             .setDescription(response)
-            .setTimestamp()
-        await interaction.editReply({embeds: [embed_message]})
+            .setTimestamp();
+        await interaction.editReply({ embeds: [embed_message] });
     }
 })
