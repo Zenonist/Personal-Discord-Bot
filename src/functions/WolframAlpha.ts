@@ -38,7 +38,7 @@ async function getResults(equation: string){
             input : equation,
             format : 'plaintext',
             output : 'JSON',
-            appid : process.env.WolframAlphaAPI
+            appid : process.env.WOLFRAMALPHAAPI
         }
     }
     await axios.request<WolframAlphaResponse>(request_option).then(response => {
