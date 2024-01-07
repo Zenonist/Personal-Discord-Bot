@@ -74,7 +74,7 @@ export default new Command({
         }
     ],
     run: async ({interaction}) => {
-        if (interaction.user.id !== process.env.UserID) {
+        if (interaction.user.id !== process.env.USERID) {
             await interaction.reply("You do not have permission to execute commands.");
         } else {
             // * Get the data from the interaction
@@ -91,12 +91,12 @@ export default new Command({
             const notionSection: NotionSection = new NotionSection();
             const categoriesArray = notionSection.createMultiSelect(categories);
             // * Create the Notion Client
-            const notion = new NotionClient({ auth: process.env.Notion_API_Key });
+            const notion = new NotionClient({ auth: process.env.NOTION_API_KEY });
             try {
                 // * Create the page
                 await notion.pages.create({
                     parent: {
-                        database_id: process.env.Notion_Money_Tracker_DB_ID
+                        database_id: process.env.NOTION_MONEY_TRACKER_DB_ID
                     },
                     properties: {
                         Type: {

@@ -15,7 +15,7 @@ export class ExtendedClient extends Client {
 
     start() {
         this.registerModules();
-        this.login(process.env.botToken);
+        this.login(process.env.BOTTOKEN);
     }
     async importFile(filePath: string) {
         return (await import(filePath))?.default;
@@ -60,11 +60,11 @@ export class ExtendedClient extends Client {
             // * Register commands to specific server
             // this.registerCommands({
             //     commands: slashCommands,
-            //     guildId: process.env.guildID
+            //     guildId: process.env.GUILDID
             // });
             // this.deleteCommands({
             //     commands: slashCommands,
-            //     guildId: process.env.guildID
+            //     guildId: process.env.GUILDID
             // });
             // * Register commands to every server
             this.registerCommands({
