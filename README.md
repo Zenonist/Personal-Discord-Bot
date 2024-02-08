@@ -37,6 +37,18 @@ docker build -t discord-bot .
 ```
 docker compose up
 ```
+## Docker Hub
+- You can pull the image from [Docker Hub](https://hub.docker.com/repository/docker/zenonist/personal-discord-bot/general)
+```
+docker pull zenonist/personal-discord-bot:latest
+```
+### Note
+- Require passing .env file to docker cli
+- Example
+```
+docker run --name personal-discord-bot --env-file ./.env zenonist/personal-discord-bot
+```
+
 
 ---
 # Notes
