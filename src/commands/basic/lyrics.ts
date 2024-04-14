@@ -2,7 +2,7 @@ import { Command } from "../../structures/Command";
 import { Client }from "genius-lyrics";
 import { MessageEmbed } from "discord.js";
 
-const client = new Client(process.env.GENIUS_API_KEY);
+const client = new Client(process.env.Genius_Access_Token);
 
 export default new Command({
     name: "lyrics",

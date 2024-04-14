@@ -15,7 +15,7 @@ export class ExtendedClient extends Client {
 
     start() {
         this.registerModules();
-        this.login(process.env.BOTTOKEN);
+        this.login(process.env.botToken);
     }
     async importFile(filePath: string) {
         return (await import(filePath))?.default;

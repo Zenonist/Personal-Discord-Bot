@@ -10,7 +10,7 @@ export default new Command({
         description: "The command to execute."
     }],
     run: async ({interaction}) => {
-        if (interaction.user.id !== process.env.USERID) await interaction.reply("You do not have permission to execute commands.");
+        if (interaction.user.id !== process.env.UserID) await interaction.reply("You do not have permission to execute commands.");
         const cmd: string = interaction.options.getString("command");
         try {
             await interaction.editReply(`Executing command ${cmd}\nResult: ${eval(cmd)}`);

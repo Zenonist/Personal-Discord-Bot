@@ -4,3 +4,5 @@ coverage
 dist
 .DS_Store
 .env
+.scannerwork
+sonar-project.properties
