@@ -13,6 +13,7 @@ declare global {
             OpenAI_API_Key: string;
             Google_API_Key: string;
             Unshorten_API_Key: string;
+            VirusTotal_API_Key: string;
             environment: "dev" | "prod" | "debug";
         }
     }
