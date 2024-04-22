@@ -15,6 +15,8 @@ Typescript Discord bot for both personal use and public use
     - [Notion database for money tracker function](./src/documents/notion_money_tracker.md)
   - [Google AI Studio API key](https://makersuite.google.com/app/apikey)
   - [OpenAI API key](https://platform.openai.com/api-keys)
+  - [Virustotal API key](https://www.virustotal.com/gui/user/lunarfragment/apikey)
+  - [Unshorten.me Token](https://unshorten.me/social_accounts/profile)
 - Rename .example.env to .env and insert tokens and api into that file
 ## Install the bot
 ```
