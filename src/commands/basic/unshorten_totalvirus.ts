@@ -17,10 +17,13 @@ export default new Command({
         }
     ],
     run: async ({ interaction }) => {
+        // Get the original URL
         let url = await unShortenURL(interaction.options.getString("url"));
+        // Check if the URL is error
         if (url.includes("Error")){
             await interaction.followUp(url);
         }else {
+            // Get the analysis result from virustotal
             let result: virustotalFuncResponse = await getVirustotalResult(url);
             if (!result.error){
                 const embed_message = new MessageEmbed()

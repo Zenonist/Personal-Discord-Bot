@@ -2,6 +2,8 @@ import axios from "axios";
 import { virustotalFuncResponse, virustotalScanUrlResponse, virustotalReportResponse} from "../structures/functions/virustotalStructure";
 import FromData from 'form-data';
 
+const wait = require('node:timers/promises').setTimeout;
+
 export default async function getVirustotalResult(_url: string): Promise<virustotalFuncResponse> {
     // Get Url that contains scan result
     let formData = new FromData();
@@ -27,9 +29,25 @@ export default async function getVirustotalResult(_url: string): Promise<virusto
         resultUrl =  response.data.data.links.self
     })
     // Get the scan result from the url
+    // ! We send request multiple time because the scan result is not available immediately after we sent a request to VirusTotal Server
+    let counter = 0
+    do {
+        await wait(3_000);
+        result = await getAnalysisResult(resultUrl)
+        counter++
+        // * If the scan result is not available after 10 times of request, we will return the result
+        if (counter == 10){
+            result.error = true
+        }
+    } while ((result.harmless == 0 && result.undetected == 0 && result.suspicious == 0 && result.malicious == 0 && result.timeout == 0 && counter < 10) || counter < 10)
+    return result
+}
+
+async function getAnalysisResult(_url: string): Promise<virustotalFuncResponse> {
+    let result = null
     let getResultSetting = {
         method: 'GET',
-        url: resultUrl,
+        url: _url,
         headers: {
             'x-apikey': process.env.VirusTotal_API_Key
         }

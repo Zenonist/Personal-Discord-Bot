@@ -8,7 +8,7 @@ async function unShortenURL (_url: string): Promise<string>{
     try {
         let response = await axios.get(baseURL, {headers: _headers});
         // * Handle the response in case that the URL is invalid or the limit acceess is exceeded
-        let result = (response.data.unshortened_url) ? response.data.unshortened_url : `Error: ${response.data.error.url}`;
+        let result = (response.data.unshortened_url) ? response.data.unshortened_url : `Error: ${response.data.error}`;
         return result
     } catch (error) {
         console.error(error);
