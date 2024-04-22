@@ -17,8 +17,6 @@ export default new Command({
     run: async ({interaction}) => {
         let _url = interaction.options.getString("url");
         let result: virustotalFuncResponse = await getVirustotalResult(_url);
-        console.log(result.error)
-        console.log(result.malicious)
         if (!result.error){
             const embed_message = new MessageEmbed()
             .setColor("#0099ff")

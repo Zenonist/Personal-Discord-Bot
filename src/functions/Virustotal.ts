@@ -3,7 +3,6 @@ import { virustotalFuncResponse, virustotalScanUrlResponse, virustotalReportResp
 import FromData from 'form-data';
 
 export default async function getVirustotalResult(_url: string): Promise<virustotalFuncResponse> {
-    console.log('A')
     // Get Url that contains scan result
     let formData = new FromData();
     formData.append('url', _url);
@@ -25,7 +24,6 @@ export default async function getVirustotalResult(_url: string): Promise<virusto
     }
     let resultUrl = null
     await axios.request<virustotalScanUrlResponse>(requestSettings).then(response => {
-        console.log('B')
         resultUrl =  response.data.data.links.self
     })
     // Get the scan result from the url
@@ -37,11 +35,6 @@ export default async function getVirustotalResult(_url: string): Promise<virusto
         }
     }
     await axios.request<virustotalReportResponse>(getResultSetting).then(response => {
-        console.log(`Malicious: ${response.data.data.attributes.stats.malicious}
-        Suspicious: ${response.data.data.attributes.stats.suspicious}
-        Undetected: ${response.data.data.attributes.stats.undetected}
-        Harmless: ${response.data.data.attributes.stats.harmless}
-        Timeout: ${response.data.data.attributes.stats.timeout}`)
         let tempResult:virustotalFuncResponse = {
             malicious: response.data.data.attributes.stats.malicious,
             suspicious: response.data.data.attributes.stats.suspicious,
@@ -50,7 +43,6 @@ export default async function getVirustotalResult(_url: string): Promise<virusto
             timeout: response.data.data.attributes.stats.timeout,
             error: false
         }
-        console.log('D')
         result = tempResult
     })
     return result
