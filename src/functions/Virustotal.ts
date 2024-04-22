@@ -30,16 +30,18 @@ export default async function getVirustotalResult(_url: string): Promise<virusto
     })
     // Get the scan result from the url
     // ! We send request multiple time because the scan result is not available immediately after we sent a request to VirusTotal Server
-    let counter = 0
+    let counter = 0;
     do {
-        await wait(3_000);
+        await wait(3_000)
         result = await getAnalysisResult(resultUrl)
+        console.log(result)
         counter++
-        // * If the scan result is not available after 10 times of request, we will return the result
-        if (counter == 10){
-            result.error = true
+        // * If any of the scan result properties is not 0, we will return the result
+        if (result.harmless !== 0 || result.undetected !== 0 || result.suspicious !== 0 || result.malicious !== 0 || result.timeout !== 0) {
+            break
         }
-    } while ((result.harmless == 0 && result.undetected == 0 && result.suspicious == 0 && result.malicious == 0 && result.timeout == 0 && counter < 10) || counter < 10)
+    } while (counter < 10)
+    result.error = (counter >= 10)
     return result
 }
 
