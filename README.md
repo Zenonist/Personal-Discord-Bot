@@ -55,3 +55,4 @@ docker run --name personal-discord-bot --env-file ./.env zenonist/personal-disco
 ---
 # Notes
 - If you clone this project, **you need to remove .skip from test cases in 'src/test/unit/wolframaplha.spec.ts' and 'src/test/unit/chatgpt.spec.ts'** for unit testing (This test case requires API key)
+- There is an issue with Totalvirus function that require sending multiple API requests to get the final result because the result is not immediately ready after the first request
