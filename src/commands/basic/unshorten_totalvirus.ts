@@ -25,6 +25,7 @@ export default new Command({
         }else {
             // Get the analysis result from virustotal
             let result: virustotalFuncResponse = await getVirustotalResult(url);
+            // Check if there is an error or not
             if (!result.error){
                 const embed_message = new MessageEmbed()
                 .setColor("#0099ff")
@@ -38,7 +39,6 @@ export default new Command({
                     { name: "timeout", value: result.timeout.toString() }
                 )
                 .setTimestamp();
-                
                 await interaction.followUp({ embeds: [embed_message] });
             }else {
                 await interaction.followUp("Error");

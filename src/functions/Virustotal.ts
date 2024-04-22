@@ -34,13 +34,13 @@ export default async function getVirustotalResult(_url: string): Promise<virusto
     do {
         await wait(3_000)
         result = await getAnalysisResult(resultUrl)
-        console.log(result)
         counter++
         // * If any of the scan result properties is not 0, we will return the result
         if (result.harmless !== 0 || result.undetected !== 0 || result.suspicious !== 0 || result.malicious !== 0 || result.timeout !== 0) {
             break
         }
     } while (counter < 10)
+    // If counter is greater than 10, error should be true
     result.error = (counter >= 10)
     return result
 }
