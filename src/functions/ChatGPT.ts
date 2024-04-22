@@ -3,7 +3,7 @@ require("dotenv").config();
 
 async function getResults(_prompt: string, _model: string ="gpt-3.5-turbo", _maxTokens: number = 256, _temperature: number = 1, _topP: number = 1){
     const openai = new OpenAI({
-        apiKey: process.env.OPENAI_API_KEY
+        apiKey: process.env.OpenAI_API_Key
     })
     const response = await openai.chat.completions.create({
         model: _model,
