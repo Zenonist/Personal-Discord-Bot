@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { Command } from './../../structures/Command';
 import { MessageEmbed } from 'discord.js';
 import { unShortenURL } from '../../functions/UnshortenURL';
