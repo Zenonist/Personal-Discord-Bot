@@ -14,6 +14,11 @@ declare global {
             Google_API_Key: string;
             Unshorten_API_Key: string;
             VirusTotal_API_Key: string;
+            // * Disable the following features (Need to be string because process.env is string)
+            Disable_Wolfram: string;
+            Disable_Gemini: string;
+            Disable_Chatgpt: string;
+            Disable_Money_Tracker: string;
             environment: "dev" | "prod" | "debug";
         }
     }
