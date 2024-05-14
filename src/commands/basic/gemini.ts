@@ -36,6 +36,10 @@ export default new Command({
         }
     ],
     run: async ({interaction}) => {
+        if (process.env.Disable_Gemini === "true"){
+            await interaction.followUp("This command is disabled");
+            return
+        }
         const prompt = interaction.options.getString("prompt");
         const model = (interaction.options.getString("model") != null) ? interaction.options.getString("model") : "gemini-pro";
         let maxTokens = interaction.options.getNumber("maxtokens");

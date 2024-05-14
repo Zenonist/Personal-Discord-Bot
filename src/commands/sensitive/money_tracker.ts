@@ -74,8 +74,12 @@ export default new Command({
         }
     ],
     run: async ({interaction}) => {
+        if (process.env.Disable_Money_Tracker === "true"){
+            await interaction.followUp("This command is disabled");
+            return
+        }
         if (interaction.user.id !== process.env.UserID) {
-            await interaction.reply("You do not have permission to execute commands.");
+            await interaction.followUp("You do not have permission to execute commands.");
         } else {
             // * Get the data from the interaction
             const type: string = interaction.options.getString("type");

@@ -48,6 +48,10 @@ export default new Command({
         }
     ],
     run: async ({interaction}) => {
+        if (process.env.Disable_Chatgpt === "true"){
+            await interaction.followUp("This command is disabled");
+            return
+        }
         const prompt = interaction.options.getString("prompt")
         const model = (interaction.options.getString("model") != null) ? interaction.options.getString("model") : "gpt-3.5-turbo"
         const max_tokens = (interaction.options.getNumber("max_tokens") != null) ? interaction.options.getNumber("max_tokens") : 256

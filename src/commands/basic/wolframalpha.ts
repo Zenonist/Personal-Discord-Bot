@@ -15,6 +15,10 @@ export default new Command({
     ],
 
     run: async ({ interaction }) => {
+        if (process.env.Disable_Wolfram === "true"){
+            await interaction.followUp("This command is disabled");
+            return
+        }
         interaction.followUp(`Result: ${await getResults(interaction.options.getString("question"))}`);
     }
 })
